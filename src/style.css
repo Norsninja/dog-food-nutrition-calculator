@@ -1,0 +1,71 @@
+/* Header */
+header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  
+  .button-container {
+    margin-left: auto;
+  }
+  
+  /* Ingredient Selection and Scaled Recipe */
+  .ingredient-recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .ingredient-column,
+  .scaled-recipe-column {
+    flex: 1 1 100%;
+    padding: 1rem;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .ingredient-recipe-container {
+      flex-wrap: nowrap;
+    }
+  
+    .ingredient-column {
+      flex: 2 1 60%;
+    }
+  
+    .scaled-recipe-column {
+      flex: 1 1 40%;
+    }
+  }
+  
+  /* Nutrient Table */
+  .nutrient-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  /* Tooltips */
+  .tooltip {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 300px;
+    z-index: 1000;
+  }
+  
+  /* Nutrient Profile and Macronutrient Balance */
+  .chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .chart-column {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .chart-column {
+      flex-basis: 100%;
+    }
+  }
