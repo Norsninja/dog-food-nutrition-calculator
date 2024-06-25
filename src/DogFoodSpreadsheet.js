@@ -230,21 +230,21 @@ const DogFoodSpreadsheet = () => {
                 return (
                 <tr key={nutrient.name} style={{backgroundColor: status.rowColor}}>
                 <td 
-                    style={{border: '1px solid #ddd', padding: '8px', cursor: 'pointer'}}
-                    onMouseEnter={(e) => {
-                        const contributions = calculateNutrientContributions(nutrient.name);
-                        setTooltipContent(
-                        <NutrientTooltip 
-                            nutrientName={nutrient.name} 
-                            contributions={contributions} 
-                        />
-                        );
-                        setMousePosition({ x: e.clientX, y: e.clientY });
-                    }}
-                    onMouseLeave={() => setTooltipContent(null)}
-                    onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
-                    >
-                    {nutrient.name}
+                  style={{ border: '1px solid #ddd', padding: '8px', cursor: 'pointer' }}
+                  onMouseEnter={(e) => {
+                    const contributions = calculateNutrientContributions(nutrient.name);
+                    setTooltipContent(
+                      <NutrientTooltip 
+                        nutrientName={nutrient.name} 
+                        contributions={contributions} 
+                      />
+                    );
+                    setMousePosition({ x: e.clientX, y: e.clientY });
+                  }}
+                  onMouseLeave={() => setTooltipContent(null)}
+                  onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
+                >
+                  {nutrient.name}
                 </td>
                 <td style={{border: '1px solid #ddd', padding: '8px'}}>{nutrient.value.toFixed(3)}</td>
                 <td style={{border: '1px solid #ddd', padding: '8px'}}>{conversionFactor.toFixed(3)}</td>
@@ -258,11 +258,24 @@ const DogFoodSpreadsheet = () => {
         </tbody>
       </table>
 
-      {tooltipContent && (
-        <div className="tooltip" style={{ top: mousePosition.y + 10, left: mousePosition.x + 10 }}>
-          {tooltipContent}
+            {tooltipContent && (
+        <div 
+            className="tooltip" 
+            style={{ 
+            position: 'absolute', 
+            top: mousePosition.y + window.scrollY + 10 + 'px', 
+            left: mousePosition.x + window.scrollX + 10 + 'px',
+            backgroundColor: 'white', 
+            border: '1px solid black', 
+            padding: '5px', 
+            zIndex: 1000 
+            }}
+        >
+            {tooltipContent}
         </div>
-      )}
+        )}
+
+
 
       <div className="chart-container">
         <div className="chart-column">
